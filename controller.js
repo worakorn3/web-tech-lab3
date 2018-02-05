@@ -1,6 +1,9 @@
 let quizCount = Infinity;
 let quizMaxPoint = 0;
 let quizScore = 0;
+let quizAsked = new Array();
+let quizObject;
+let quizCorrectAns;
 let quizJSON = [{
     "questions": 
     [
@@ -198,28 +201,19 @@ let quizJSON = [{
         }
     ]
 }]
-let quizAsked = new Array();
-let quizObject;
 
-// Utility function for ceiling questions
 function quiz10(){
-    let quizNumRand = random();
     quizCount = 10;
     quizMaxPoint = 10;
-    quizObject = quizJSON[0].questions[quizNumRand];
+    randomQuestion()
     // console.log(quizJSON[0].questions[quizNumRand]);
     // document.getElementById("").innerHTML = quizObject.question;
-    document.getElementById("quiz-remain-integer").innerHTML = quizCount;
-    generateQuiz(quizObject.question, quizObject.answers, quizNumRand);
 }
 
 function quiz20(){
-    let quizNumRand = random();
     quizCount = 20;
     quizMaxPoint = 20;
-    quizObject = quizJSON[0].questions[quizNumRand];
-    document.getElementById("quiz-remain-integer").innerHTML = quizCount;
-    generateQuiz(quizObject.question, quizObject.answers, quizNumRand);
+    randomQuestion()
 }
 
 function generateQuiz(question, answers, quizNumRand){
@@ -228,35 +222,60 @@ function generateQuiz(question, answers, quizNumRand){
     document.getElementById("second-btn").innerHTML = "<h5>"+answers[1]+"</h5>";
     document.getElementById("third-btn").innerHTML = "<h5>"+answers[2]+"</h5>";
     document.getElementById("fourth-btn").innerHTML = "<h5>"+answers[3]+"</h5>";
+    quizCorrectAns = quizObject.correctIndex;
 }
 
-document.getElementById("first-btn").addEventListener("click",checkAns(document.getElementById("first-btn").innerHTML), false);
-
-function checkAns(answer) {
-    console.log(answer);
-    document.getElementById("quiz-remain-integer").innerHTML = quizCount;
+function checkAns(btnID) {
+    let id = getBtnID(btnID);
+    console.log(id==quizCorrectAns);
     if(quizCount < 1){
-        alert("Your score: "+quizScore+"/"+quizMaxPoint+" points\n+to play again please choose numbers of quiz again")
-    }else{
+        alert("Your score: "+quizScore+"/"+quizMaxPoint+" points\n to play again please choose numbers of quiz")
+        quizCount = 1;
+    } else {
         /*image change: 
         default and wrong answer
             https://media.giphy.com/media/xTiTnkFneD1je4rPOM/giphy.gif
         correct answer
             https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif
-        
         */
         let b = document.getElementById("imgg")
-        if(correct){
+        if(id==quizCorrectAns){
             quizScore++;
-            
+            b.src='https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif'
+            b.style.height = '27%';
+            b.style.width = '27%';
+            alert("Correct");
         } else {
-            
+            b.src='https://media.giphy.com/media/xTiTnkFneD1je4rPOM/giphy.gif'
+            alert("Wrong");
         }
+        randomQuestion()
     }
     quizCount--;
+    document.getElementById("quiz-remain-integer").innerHTML = quizCount;
 }
 
 function random() {
     let quizNumRand = Math.floor(Math.random()*100%20);
     return quizNumRand;
+}
+
+function randomQuestion() {
+    let quizNumRand = random();
+    quizObject = quizJSON[0].questions[quizNumRand];
+    document.getElementById("quiz-remain-integer").innerHTML = quizCount;
+    generateQuiz(quizObject.question, quizObject.answers, quizNumRand);
+}
+
+function getBtnID(btnID) {
+    let id;
+    if(btnID == "first-btn")
+        id=0;
+    else if(btnID == "second-btn")
+        id=1;
+    else if(btnID == "third-btn")
+        id=2;
+    else
+        id=3;
+    return id;
 }
