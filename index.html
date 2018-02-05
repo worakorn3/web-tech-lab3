@@ -18,10 +18,10 @@
                     <button id="quiz-10-btn" onclick="quiz10()">10 questions</button>
                     <button id="quiz-20-btn" onclick="quiz20()">20 questions</button>
                 </div>
-
+                <p id="quiz-question"></p>
                 <div class="quiz-remain">
                     <p>Questions remain: </p>
-                    <p class="quiz-remain-integer">10</p>
+                    <p id="quiz-remain-integer" class="quiz-remain-integer">?</p>
                 </div>
             </div>
 
@@ -36,8 +36,8 @@
         </div>
 
         <script src="controller.js"></script>
-        <script src="quiz.json"></script>
-        <script>
+        <!--<script>
+            // how JSON is loaded: http://katecpp.github.io/load-json/ http://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm
             var questions = new Array();
             function loadJSON() {
                 $.getJSON('quiz.json', function(data){
@@ -46,7 +46,6 @@
                     console.log("Error loading JSON");
                 });
             }
-            
-        </script>
+        </script>-->
     </body>
 </html>

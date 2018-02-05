@@ -1,5 +1,6 @@
-{
-    "questions": [
+[{
+    "questions": 
+    [
         {
             "question": "What is the scientific name of a butterfly?",
             "answers": [
@@ -119,72 +120,80 @@
                 "0x12D591"
             ],
             "correctIndex": 1
-        },{
+        },
+        {
             "question": "What is what?",
-            "answer": [
+            "answers": [
                 "Question",
                 "Sarcasm",
                 "Answer",
                 "..."
             ],
             "correctIndex": 0
-        },{
+        },
+        {
             "question": "How do you pronounce 'What'?",
-            "answer": [
+            "answers": [
                 "What",
                 "Wad",
                 "Wot",
                 "Wat"
             ],
             "correctIndex": 0
-        },{
+        },
+        {
             "question": "Question is...",
-            "answer": [
+            "answers": [
                 "No!!",
                 "No!!!",
                 "No!!!!",
                 "No!!!!!"
             ],
             "correctIndex": 0
-        },{
+        },
+        {
             "question": "No!!!!!!",
-            "answer": [
+            "answers": [
                 "Wut?",
                 "What?",
                 "Wad?",
                 "Wat?"
             ],
             "correctIndex": 1
-        },{
+        },
+        {
             "question": "Yay!!",
-            "answer": [
+            "answers": [
                 "Congrat!",
                 "HNY!",
                 "HBD!",
                 "YAY!"
             ],
             "correctIndex": 0
-        },{
+        },
+        {
             "question": "Who is the latest hero of marvel's universe?",
-            "answer": [
+            "answers": [
                 "Red Panther",
                 "Blue Panther",
                 "White Panther",
                 "Black Panther"
             ],
             "correctIndex": 3
-        },{
+        },
+        {
             "question": "What is the last?",
-            "answer": [
+            "answers": [
                 "The last",
                 "The lastest",
                 "The latest",
                 "The least"
             ],
             "correctIndex": 0
-        },{
+        },
+        {
             "question": "What is the first?",
-            "answer": [
+            "answers": [
                 "4",
                 "3",
                 "2",
@@ -193,4 +202,4 @@
             "correctIndex": 3
         }
     ]
-}
+}]
